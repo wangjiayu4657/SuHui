@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemCell" id="gTV-IL-0wX" customClass="navigationCell">
+            <rect key="frame" x="0.0" y="0.0" width="86" height="112"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="86" height="112"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dn0-eJ-9rg">
+                        <rect key="frame" x="5" y="5" width="76" height="76"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="76" id="1sT-lc-M3W"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="楼下洗车" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGM-TR-FT1">
+                        <rect key="frame" x="5" y="86" width="76" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xGM-TR-FT1" secondAttribute="trailing" constant="5" id="9Hs-kX-6TX"/>
+                <constraint firstItem="xGM-TR-FT1" firstAttribute="top" secondItem="dn0-eJ-9rg" secondAttribute="bottom" constant="5" id="ODm-gL-DQg"/>
+                <constraint firstAttribute="trailing" secondItem="dn0-eJ-9rg" secondAttribute="trailing" constant="5" id="OrK-tX-d89"/>
+                <constraint firstItem="dn0-eJ-9rg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Scb-CO-PwS"/>
+                <constraint firstItem="dn0-eJ-9rg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="VFD-Ad-BKO"/>
+                <constraint firstAttribute="bottom" secondItem="xGM-TR-FT1" secondAttribute="bottom" constant="5" id="x8q-8L-2WT"/>
+                <constraint firstItem="xGM-TR-FT1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="xga-Vt-Qcr"/>
+            </constraints>
+            <size key="customSize" width="95" height="112"/>
+            <connections>
+                <outlet property="contentLabel" destination="xGM-TR-FT1" id="EzG-V2-wCS"/>
+                <outlet property="imageView" destination="dn0-eJ-9rg" id="ou9-MK-Dxy"/>
+            </connections>
+            <point key="canvasLocation" x="390" y="326"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="shopCellID" id="gTV-IL-0wX" customClass="ShopCell">
+            <rect key="frame" x="0.0" y="0.0" width="162" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="162" height="200"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="ZOx-F0-0es">
+                        <rect key="frame" x="0.0" y="0.0" width="162" height="158"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格展示" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG1-Nb-NKW">
+                        <rect key="frame" x="0.0" y="158" width="162" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="8Pe-XE-aED"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmV-kU-YCM">
+                        <rect key="frame" x="0.0" y="179" width="162" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="DfL-QL-dpG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="EG1-Nb-NKW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4BW-Ts-gHz"/>
+                <constraint firstItem="OmV-kU-YCM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5nN-xE-hMy"/>
+                <constraint firstAttribute="trailing" secondItem="EG1-Nb-NKW" secondAttribute="trailing" id="5re-Ud-U6D"/>
+                <constraint firstItem="ZOx-F0-0es" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7ea-u0-Pyr"/>
+                <constraint firstAttribute="trailing" secondItem="OmV-kU-YCM" secondAttribute="trailing" id="Z3G-cA-TIe"/>
+                <constraint firstItem="EG1-Nb-NKW" firstAttribute="top" secondItem="ZOx-F0-0es" secondAttribute="bottom" id="c7b-2c-DHG"/>
+                <constraint firstItem="OmV-kU-YCM" firstAttribute="top" secondItem="EG1-Nb-NKW" secondAttribute="bottom" id="e4G-r0-SLK"/>
+                <constraint firstItem="ZOx-F0-0es" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="g86-d0-jED"/>
+                <constraint firstAttribute="bottom" secondItem="OmV-kU-YCM" secondAttribute="bottom" id="pih-GN-HFD"/>
+                <constraint firstAttribute="trailing" secondItem="ZOx-F0-0es" secondAttribute="trailing" id="wPV-rO-GPA"/>
+            </constraints>
+            <size key="customSize" width="162" height="200"/>
+            <connections>
+                <outlet property="imageView" destination="ZOx-F0-0es" id="EIG-E3-L0S"/>
+                <outlet property="introduceLabel" destination="EG1-Nb-NKW" id="WKs-Cb-nIt"/>
+                <outlet property="priceLabel" destination="OmV-kU-YCM" id="bT3-tn-tc3"/>
+            </connections>
+            <point key="canvasLocation" x="374" y="321"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="loading" width="100" height="100"/>
+    </resources>
+</document>

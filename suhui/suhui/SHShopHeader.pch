@@ -1,0 +1,26 @@
+//
+//  SHShopHeader.pch
+//  suhui
+//
+//  Created by fangjs on 16/5/11.
+//  Copyright © 2016年 fangjs. All rights reserved.
+//
+
+#ifndef SHShopHeader_pch
+#define SHShopHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+
+
+#import "SHShop.h"
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
+
+#endif /* SHShopHeader_pch */
