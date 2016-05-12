@@ -32,8 +32,9 @@
 
 @interface HomeViewController ()<UICollectionViewDataSource,CHTCollectionViewDelegateWaterfallLayout,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
-@property (weak, nonatomic)  UICollectionView *collectionView;
+@property (strong, nonatomic)  UICollectionView *collectionView;
 @property (nonatomic , strong) NSMutableArray *shops;
+
 
 /**<#strong#>*/
 @property (strong , nonatomic) CHTCollectionViewWaterfallLayout *flowLayout;
@@ -57,6 +58,7 @@
     [self setUpLayout];
     [self loadDataSource];
     
+
     
     self.contentArray = [NSMutableArray arrayWithObjects:@"精品分类",@"热卖商品", nil];
 }
@@ -99,23 +101,20 @@
     self.flowLayout.minimumColumnSpacing = 5;
     self.flowLayout.minimumInteritemSpacing = 5;
     
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 49 - 64) collectionViewLayout:self.flowLayout];
-    collectionView.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
-    collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 49 - 64) collectionViewLayout:self.flowLayout];
+    self.collectionView.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    self.collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
    
-    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([navigationCell class]) bundle:nil] forCellWithReuseIdentifier:cellID];
-    [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopCell class]) bundle:nil] forCellWithReuseIdentifier:shopCellID];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([navigationCell class]) bundle:nil] forCellWithReuseIdentifier:navigationCellID];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopCell class]) bundle:nil] forCellWithReuseIdentifier:shopCellID];
     
-    [collectionView registerClass:[HeaderView class] forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:HEADER_IDENTIFIERVIEW];
-    [collectionView registerClass:[CHTCollectionViewWaterfallHeader class] forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:HEADER_IDENTIFIER];
-    [collectionView registerClass:[CHTCollectionViewWaterfallFooter class] forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:FOOTER_IDENTIFIER];
-
+    [self.collectionView registerClass:[HeaderView class] forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:HEADER_IDENTIFIERVIEW];
+    [self.collectionView registerClass:[CHTCollectionViewWaterfallHeader class] forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:HEADER_IDENTIFIER];
+    [self.collectionView registerClass:[CHTCollectionViewWaterfallFooter class] forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:FOOTER_IDENTIFIER];
     
-    [self.view addSubview:collectionView];
-    
-    self.collectionView = collectionView;
+    [self.view addSubview: self.collectionView];
 }
 
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -131,7 +130,7 @@
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
 //         self.flowLayout.itemRenderDirection = CHTCollectionViewWaterfallLayoutItemRenderDirectionShortestFirst;
-         navigationCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+         navigationCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:navigationCellID forIndexPath:indexPath];
          cell.shop = self.shops[indexPath.section][indexPath.item];
          return cell;
     }
@@ -147,6 +146,7 @@
 - (UICollectionReusableView *) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
     UICollectionReusableView *reusableView = nil;
+    
     if (indexPath.section == 0) {
         if ([kind isEqualToString:CHTCollectionElementKindSectionHeader]) {
             reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
@@ -157,6 +157,8 @@
             reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                               withReuseIdentifier:FOOTER_IDENTIFIER
                                                                      forIndexPath:indexPath];
+            CHTCollectionViewWaterfallFooter *footerView = (CHTCollectionViewWaterfallFooter *)reusableView;
+            footerView.isShow = NO;
         }
         
 
@@ -172,7 +174,6 @@
             if (indexPath.section == 2) {
                  headerView.contentLabel.text = @"热卖商品";
             }
-            
         }
         else if ([kind isEqualToString:CHTCollectionElementKindSectionFooter]) {
             reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
@@ -180,16 +181,13 @@
                                                                      forIndexPath:indexPath];
             CHTCollectionViewWaterfallFooter *footerView = (CHTCollectionViewWaterfallFooter *)reusableView;
             if (indexPath.section == 2) {
-                footerView.footerContentLabel.text = @"为你而选";
                 footerView.isShow = YES;
             }
             else {
-                 footerView.isShow = NO;
+                footerView.isShow = NO;
             }
         }
-
     }
-   
      return reusableView;
 }
 
@@ -200,7 +198,7 @@
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return CGSizeMake(86, 112);
+        return CGSizeMake(86, 86);
     }
     else if (indexPath.section == 1){
         if (indexPath.item == 0) {
@@ -210,6 +208,7 @@
         }
     }
     else if (indexPath.section == 2) {
+        
         if (indexPath.item == 0) {
             return CGSizeMake(59 , 100);
         }else {

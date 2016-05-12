@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-static NSString *const cellID = @"itemCell";
+static NSString *const navigationCellID = @"navigationCellID";
 
 @interface navigationCell : UICollectionViewCell
 

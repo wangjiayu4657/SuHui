@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CHTCollectionViewWaterfallFooter : UICollectionReusableView
-/**<#strong#>*/
-@property (strong , nonatomic) UILabel *footerContentLabel;
 
+@property (strong , nonatomic) UILabel *footerContentLabel;
 @property (assign , nonatomic) BOOL isShow;
+
 @end

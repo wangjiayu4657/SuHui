@@ -14,6 +14,7 @@
 @property (strong , nonatomic) UIView *preView;
 @property (strong , nonatomic) UIView *sufView;
 @property (strong , nonatomic) UIImageView *imageView;
+
 @end
 
 @implementation CHTCollectionViewWaterfallFooter
@@ -44,16 +45,11 @@
       _footerContentLabel.textAlignment = NSTextAlignmentLeft;
       _footerContentLabel.font = [UIFont systemFontOfSize:13];
       _footerContentLabel.textColor = [UIColor darkTextColor];
-      _footerContentLabel.hidden = YES;
+      _footerContentLabel.text = @"为你而选";
+       _footerContentLabel.hidden = YES;
       [self addSubview:_footerContentLabel];
-      
-      
   }
   return self;
-}
-
--(void)setFooterContentLabel:(UILabel *)footerContentLabel {
-    _footerContentLabel = footerContentLabel;
 }
 
 -(void)setIsShow:(BOOL)isShow {
@@ -69,7 +65,8 @@
         _sufView.hidden = YES;
         _footerContentLabel.hidden = YES;
     }
-    
 }
+
+
 
 @end
