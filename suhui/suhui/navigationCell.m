@@ -13,6 +13,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+///**下载的所有图片*/
+//@property (strong , nonatomic)  NSMutableDictionary *images;
+//
+///**缓存操作*/
+//@property (strong , nonatomic)  NSMutableDictionary *operations;
+
 @end
 
 
@@ -31,5 +37,22 @@
     
      self.contentLabel.text = shop.price;
 }
+
+
+///**
+// *  多图片,异步下载
+// *
+// *  @param shop 模型
+// */
+//- (void) setShop:(SHShop *)shop {
+//    _shop = shop;
+//    self.contentLabel.text = shop.price;
+//    
+//    if (image) {
+//        
+//    }
+//    
+//    
+//}
 
 @end

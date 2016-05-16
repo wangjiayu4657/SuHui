@@ -82,6 +82,9 @@
 		FAD7241A1CE1F8800011F9A0 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD723FB1CE1F8800011F9A0 /* UIScrollView+MJRefresh.m */; };
 		FAD7241B1CE1F8800011F9A0 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD723FD1CE1F8800011F9A0 /* UIView+MJExtension.m */; };
 		FAD7241E1CE203AB0011F9A0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD7241D1CE203AB0011F9A0 /* ViewController.m */; };
+		FAE81ED31CE96DB100EF6744 /* DownloadPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE81ED21CE96DB100EF6744 /* DownloadPictureViewController.m */; };
+		FAE81ED51CE970A200EF6744 /* apps.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAE81ED41CE970A200EF6744 /* apps.plist */; };
+		FAE81ED81CE970E500EF6744 /* appsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE81ED71CE970E500EF6744 /* appsModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +254,11 @@
 		FAD723FD1CE1F8800011F9A0 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		FAD7241C1CE203AB0011F9A0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FAD7241D1CE203AB0011F9A0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FAE81ED11CE96DB100EF6744 /* DownloadPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadPictureViewController.h; sourceTree = "<group>"; };
+		FAE81ED21CE96DB100EF6744 /* DownloadPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadPictureViewController.m; sourceTree = "<group>"; };
+		FAE81ED41CE970A200EF6744 /* apps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apps.plist; sourceTree = "<group>"; };
+		FAE81ED61CE970E500EF6744 /* appsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appsModel.h; sourceTree = "<group>"; };
+		FAE81ED71CE970E500EF6744 /* appsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +326,7 @@
 				FA5E92341CE1B7930021C450 /* LaunchScreen.storyboard */,
 				FA5E92371CE1B7930021C450 /* Info.plist */,
 				FAD723B71CE1F8650011F9A0 /* 1.plist */,
+				FAE81ED41CE970A200EF6744 /* apps.plist */,
 				FA5E92261CE1B7930021C450 /* Supporting Files */,
 			);
 			path = suhui;
@@ -364,6 +373,9 @@
 		FA5E925A1CE1B9CE0021C450 /* 购物车 */ = {
 			isa = PBXGroup;
 			children = (
+				FAE81EDB1CE9716C00EF6744 /* model */,
+				FAE81EDA1CE9716200EF6744 /* view */,
+				FAE81ED91CE9715100EF6744 /* controllers */,
 			);
 			name = "购物车";
 			sourceTree = "<group>";
@@ -609,6 +621,31 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		FAE81ED91CE9715100EF6744 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAE81ED11CE96DB100EF6744 /* DownloadPictureViewController.h */,
+				FAE81ED21CE96DB100EF6744 /* DownloadPictureViewController.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		FAE81EDA1CE9716200EF6744 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		FAE81EDB1CE9716C00EF6744 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				FAE81ED61CE970E500EF6744 /* appsModel.h */,
+				FAE81ED71CE970E500EF6744 /* appsModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -719,6 +756,7 @@
 				FA5E92311CE1B7930021C450 /* Main.storyboard in Resources */,
 				FA5E92B71CE1E62A0021C450 /* navigationCell.xib in Resources */,
 				FA5C429B1CE2CBA200719078 /* ShopCell.xib in Resources */,
+				FAE81ED51CE970A200EF6744 /* apps.plist in Resources */,
 				FA5C42AA1CE325D200719078 /* CustomShopCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -799,10 +837,12 @@
 				FA5E92AC1CE1C9A80021C450 /* UIImage+WebP.m in Sources */,
 				FA5E92B61CE1E62A0021C450 /* navigationCell.m in Sources */,
 				FAD724031CE1F8800011F9A0 /* MJMethod.m in Sources */,
+				FAE81ED81CE970E500EF6744 /* appsModel.m in Sources */,
 				FA5E92A71CE1C9A80021C450 /* SDWebImageManager.m in Sources */,
 				FAD7241A1CE1F8800011F9A0 /* UIScrollView+MJRefresh.m in Sources */,
 				FA5E92791CE1C78A0021C450 /* SDCollectionViewCell.m in Sources */,
 				FAD724041CE1F8800011F9A0 /* MJType.m in Sources */,
+				FAE81ED31CE96DB100EF6744 /* DownloadPictureViewController.m in Sources */,
 				FAD7241E1CE203AB0011F9A0 /* ViewController.m in Sources */,
 				FAD724101CE1F8800011F9A0 /* MJRefreshAutoStateFooter.m in Sources */,
 				FA5E927A1CE1C78A0021C450 /* SDCycleScrollView.m in Sources */,
